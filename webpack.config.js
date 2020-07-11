@@ -13,7 +13,7 @@ module.exports = {
         rules: [
             {
                 enforce: 'pre',
-                test: /\.(ts|tsx)$/,
+                test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'source-map-loader'
             },

@@ -1,6 +1,12 @@
 import React from 'react';
-import './app.css';
+import CalendarHeader from "./calendar-header";
 
-const App: React.FunctionComponent = () => <h1>Hello!</h1>;
+const App = () => {
+    return (
+        <div>
+            <CalendarHeader year={2020} month={"July"}/>
+        </div>
+    );
+};
 
 export default App;
