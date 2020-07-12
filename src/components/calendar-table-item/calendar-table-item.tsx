@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import './calendar-table-item.css';
 
 type CalendarTableItem = {
@@ -7,9 +7,7 @@ type CalendarTableItem = {
 
 const CalendarTableItem = ({id}: CalendarTableItem) => {
     return (
-        <Fragment>
-            <span>{id}</span>
-        </Fragment>
+        <button className="btn btn-outline-primary btn-block">{id}</button>
     );
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import './calendar-header.css';
 
 type CalendarHeaderProps = {
     year: number,
@@ -7,26 +8,16 @@ type CalendarHeaderProps = {
 
 const CalendarHeader = ({year, month}: CalendarHeaderProps) => {
     return (
-        <section className="calendar-header">
-            <div className="calendar-date">
-                <button>{"<"}</button>
-                <p>
-                    <span>{year}</span>
-                    <span>{month}</span>
-                </p>
-                <button>{">"}</button>
-            </div>
-            <div className="calender-days">
-                <ul>
-                    <li>Sunday</li>
-                    <li>Monday</li>
-                    <li>Tuesday</li>
-                    <li>Wednesday</li>
-                    <li>Thursday</li>
-                    <li>Friday</li>
-                    <li>Saturday</li>
-                </ul>
-            </div>
+        <section className="d-flex justify-content-center calendar-date">
+            <button className="btn btn-outline-primary">
+                <i className="fas fa-arrow-left"/>
+            </button>
+            <p className="display-4 text-center text-uppercase">
+                <span>{year} {month}</span>
+            </p>
+            <button className="btn btn-outline-primary">
+                <i className="fas fa-arrow-right"/>
+            </button>
         </section>
     );
 }
