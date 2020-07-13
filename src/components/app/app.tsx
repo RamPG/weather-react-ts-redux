@@ -6,7 +6,7 @@ import { getCalendar } from '../../services/time-library';
 const App = () => (
   <div>
     <CalendarHeader year={2020} month="July" />
-    <CalendarTable dataDays={getCalendar({ year: 2020, month: 12 })} />
+    <CalendarTable dataDays={getCalendar({ year: 2020, month: 0 })} />
   </div>
 );
 

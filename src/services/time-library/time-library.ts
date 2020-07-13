@@ -4,9 +4,10 @@ type DateObject = {
 }
 
 function getDaysInMonth(current: DateObject): number {
-  const currentDate: number = new Date(current.year, current.month, 1).getTime();
-  const prevDate: number = new Date(current.year, current.month - 1, 1).getTime();
-  return Math.round((currentDate - prevDate) / 1000 / 3600 / 24);
+  const { year, month } = current;
+  const currentDate: number = new Date(year, month, 1).getTime();
+  const nextDate: number = new Date(year, month + 1, 1).getTime();
+  return Math.round((nextDate - currentDate) / 1000 / 3600 / 24);
 }
 
 function getSundayDate(current: DateObject, daysInMonth: number): number {
@@ -21,7 +22,7 @@ function getCalendar(current: DateObject): Array<Array<number>> {
   const { year, month } = current;
   const currentDaysInMonth: number = getDaysInMonth({ year, month });
   let prevDaysInMonth: number = getDaysInMonth({ year, month: month - 1 });
-  let currentDay: number = getSundayDate({ year, month: month - 1 }, prevDaysInMonth);
+  let currentDay: number = getSundayDate({ year, month }, prevDaysInMonth);
   if (currentDay === 1) {
     prevDaysInMonth = currentDaysInMonth;
   }
