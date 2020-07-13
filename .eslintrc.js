@@ -22,6 +22,8 @@ module.exports = {
   ],
   rules: {
     'import/no-unresolved': 'off',
+    'react/prefer-stateless-function': [2, { ignorePureComponents: true }],
+    '@typescript-eslint/no-unused-vars': 'error',
     'import/prefer-default-export': 'off',
     'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
     'import/extensions': [2, { extensions: ['.ts', '.tsx'] }],

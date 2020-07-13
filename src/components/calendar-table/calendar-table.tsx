@@ -1,12 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import './calendar-table.css';
 import CalendarTableItem from '../calendar-table-item';
+import { CalendarState } from '../../types';
 
 interface CalendarTable {
-    dataDays: Array<Array<number>>
+  calendar: Array<Array<number>>
 }
 
-const CalendarTable = ({ dataDays }: CalendarTable) => (
+const CalendarTable = ({ calendar }: CalendarTable) => (
   <div className="table-responsive calendar-days">
     <table className="table">
       <thead>
@@ -22,21 +25,24 @@ const CalendarTable = ({ dataDays }: CalendarTable) => (
       </thead>
       <tbody>
         {
-                    dataDays.map((array) => (
-                      <tr>
-                        {
-                                    array.map((element) => (
-                                      <th>
-                                        <CalendarTableItem id={element} />
-                                      </th>
-                                    ))
-                                }
-                      </tr>
-                    ))
-                }
+          calendar.map((array) => (
+            <tr>
+              {
+                array.map((element) => (
+                  <th>
+                    <CalendarTableItem id={element} />
+                  </th>
+                ))
+              }
+            </tr>
+          ))
+        }
       </tbody>
     </table>
   </div>
 );
+const mapStateToProps = (state: CalendarState) => ({
+  calendar: state.calendar,
+});
 
-export default CalendarTable;
+export default connect(mapStateToProps)(CalendarTable);

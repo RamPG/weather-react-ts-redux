@@ -37,9 +37,9 @@ function getCalendar(current: DateObject): Array<Array<number>> {
         prevDaysInMonth = currentDaysInMonth;
       }
     }
-    calendar.push(newWeek.slice());
+    calendar.push(newWeek);
   }
   return calendar;
 }
 
-export { getDaysInMonth, getSundayDate, getCalendar };
+export { getCalendar };

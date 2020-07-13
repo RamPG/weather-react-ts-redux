@@ -1,3 +1,3 @@
-import { getDaysInMonth, getSundayDate, getCalendar } from './time-library';
+import { getCalendar } from './time-library';
 
-export { getDaysInMonth, getSundayDate, getCalendar };
+export { getCalendar };
