@@ -1,3 +1,3 @@
-import CalendarTable from "./calendar-table";
+import CalendarTable from './calendar-table';
 
 export default CalendarTable;
