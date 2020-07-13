@@ -13,9 +13,15 @@ module.exports = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'source-map-loader',
+      },
+      {
+        enforce: 'pre',
+        test: /\.(ts|tsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'eslint-loader',
       },
       {
         test: /\.(css)$/,
@@ -25,7 +31,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: [
           {
@@ -65,6 +71,6 @@ module.exports = {
     historyApiFallback: true,
   },
   resolve: {
-    extensions: ['.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 };

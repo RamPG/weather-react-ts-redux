@@ -1,3 +1,3 @@
-import CalendarHeader from "./calendar-header";
+import CalendarHeader from './calendar-header';
 
 export default CalendarHeader;
