@@ -2,12 +2,12 @@ import React from 'react';
 import './calendar-table.css';
 import CalendarTableItem from '../calendar-table-item';
 
-type CalendarTable = {
+interface CalendarTable {
     dataDays: Array<Array<number>>
 }
 
 const CalendarTable = ({ dataDays }: CalendarTable) => (
-  <div className="calendar-days">
+  <div className="table-responsive calendar-days">
     <table className="table">
       <thead>
         <tr>

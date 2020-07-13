@@ -22,6 +22,10 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'eslint-loader',
+        options: {
+          'import/prefer-default-export': 'off',
+          'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
+        },
       },
       {
         test: /\.(css)$/,

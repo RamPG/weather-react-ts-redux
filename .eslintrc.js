@@ -22,6 +22,8 @@ module.exports = {
   ],
   rules: {
     'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
+    'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
     'import/extensions': [2, { extensions: ['.ts', '.tsx'] }],
     'react/jsx-filename-extension': [2, { extensions: ['.ts', '.tsx'] }],
   },
