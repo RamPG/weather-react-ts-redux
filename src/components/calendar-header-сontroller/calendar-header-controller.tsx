@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import './calendar-header-month-year.css';
+import './calendar-header-сontroller.css';
 import { Dispatch } from 'redux';
 import { CalendarState } from '../../types';
 import { nextMonth, prevMonth } from '../../actions/actions';
@@ -24,7 +24,7 @@ const mapDispatch = (dispatch: Dispatch) => ({
 type ReduxType = ReturnType<typeof mapState> &
     ReturnType<typeof mapDispatch> & CalendarHeaderDateProps;
 
-const CalendarHeaderMonthYear = ({
+const CalendarHeaderController = ({
   month, year, onPrevMonth, onNextMonth,
 }: ReduxType) => (
   <div className="d-flex justify-content-center calendar-date">
@@ -49,4 +49,4 @@ const CalendarHeaderMonthYear = ({
     </button>
   </div>
 );
-export default connect(mapState, mapDispatch)(CalendarHeaderMonthYear);
+export default connect(mapState, mapDispatch)(CalendarHeaderController);
