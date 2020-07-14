@@ -24,6 +24,7 @@ module.exports = {
         loader: 'eslint-loader',
         options: {
           'import/prefer-default-export': 'off',
+          'react/prefer-stateless-function': 'off',
           'no-plusplus': [2, { allowForLoopAfterthoughts: true }],
         },
       },

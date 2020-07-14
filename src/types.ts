@@ -16,6 +16,7 @@ export type ItemObject = {
     classButton: string
 }
 export interface CalendarState {
+    currentDay: number,
     currentYear: number,
     currentMonth: {
         name: string,

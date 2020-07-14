@@ -21,8 +21,9 @@ module.exports = {
     'import',
   ],
   rules: {
+    'react/state-in-constructor': [2, 'never'],
     'import/no-unresolved': 'off',
-    'react/prefer-stateless-function': [2, { ignorePureComponents: true }],
+    'react/prefer-stateless-function': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'import/prefer-default-export': 'off',
     'no-plusplus': [2, { allowForLoopAfterthoughts: true }],

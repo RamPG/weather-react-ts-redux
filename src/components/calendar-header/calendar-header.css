@@ -1,12 +1,4 @@
-.calendar-date {
+.calendar-header {
     margin-top: 25px;
     margin-bottom: 25px;
-}
-
-.calendar-date p {
-    width: 500px;
-}
-
-.calendar-date button {
-    width: 84px;
 }

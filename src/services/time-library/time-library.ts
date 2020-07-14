@@ -9,6 +9,18 @@ function getYearNow(): number {
 function getDayNow(): number {
   return new Date().getDate();
 }
+function getHoursFormat(): string {
+  const hours: number = new Date().getHours();
+  return hours < 10 ? `0${hours}` : `${hours}`;
+}
+function getMinutesFormat(): string {
+  const minutes: number = new Date().getMinutes();
+  return minutes < 10 ? `0${minutes}` : `${minutes}`;
+}
+function getSecondsFormat(): string {
+  const seconds: number = new Date().getSeconds();
+  return seconds < 10 ? `0${seconds}` : `${seconds}`;
+}
 function getDaysInMonth(current: DateObject): number {
   const { year, month } = current;
   const currentDate: number = new Date(year, month, 1).getTime();
@@ -82,4 +94,5 @@ function getNameMonth(month: number) : string {
 }
 export {
   getCalendar, getNameMonth, getMonthNow, getYearNow,
+  getDayNow, getHoursFormat, getMinutesFormat, getSecondsFormat,
 };

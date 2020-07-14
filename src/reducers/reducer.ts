@@ -1,10 +1,11 @@
 import { NEXT_MONTH, PREV_MONTH } from '../actions/actions-constants';
 import { CalendarState, MonthActionTypes } from '../types';
 import {
-  getCalendar, getNameMonth, getMonthNow, getYearNow,
+  getCalendar, getNameMonth, getMonthNow, getYearNow, getDayNow,
 } from '../services/time-library';
 
 const initialState: CalendarState = {
+  currentDay: getDayNow(),
   currentYear: getYearNow(),
   currentMonth: {
     name: getNameMonth(getMonthNow()),
@@ -23,6 +24,7 @@ const reducer = (state = initialState, action: MonthActionTypes): CalendarState 
         year += 1;
       }
       return {
+        ...state,
         currentYear: year,
         currentMonth: {
           name: getNameMonth(month),
@@ -37,6 +39,7 @@ const reducer = (state = initialState, action: MonthActionTypes): CalendarState 
         year -= 1;
       }
       return {
+        ...state,
         currentYear: year,
         currentMonth: {
           name: getNameMonth(month),
