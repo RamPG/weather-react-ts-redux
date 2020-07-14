@@ -67,12 +67,14 @@ function getCalendar(current: DateObject): Array<Array<ItemObject>> {
     calendar.push(newWeek);
   }
   if (year === getYearNow() && month === getMonthNow()) {
+    let startPosJ = new Date(year, month, 1).getDay();
     for (let i: number = 0; i < 5; i++) {
-      for (let j: number = 0; j < 7; j++) {
+      for (let j: number = startPosJ; j < 7; j++) {
         if (calendar[i][j].day === getMonthDayNow()) {
           calendar[i][j].classButton = 'btn btn-danger btn-block';
           break;
         }
+        startPosJ = 0;
       }
     }
   }
