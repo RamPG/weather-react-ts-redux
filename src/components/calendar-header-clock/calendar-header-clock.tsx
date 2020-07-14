@@ -32,13 +32,9 @@ export default class CalendarHeaderClock extends React.Component<{}, CalendarHea
       return (
         <h1 className="display-4 text-center">
           {hours}
-          {' '}
           :
-          {' '}
           {minutes}
-          {' '}
           :
-          {' '}
           {seconds}
         </h1>
       );

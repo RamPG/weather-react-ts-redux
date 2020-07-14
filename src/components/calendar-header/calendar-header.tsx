@@ -1,12 +1,14 @@
 import React from 'react';
 
 import './calendar-header.css';
-import CalendarHeaderDate from '../calendar-header-date';
+import CalendarHeaderMonthYear from '../calendar-header-month-year/calendar-header-month-year';
 import CalendarHeaderClock from '../calendar-header-clock';
+import CalendarHeaderDay from '../calendar-header-day';
 
 const CalendarHeader = () => (
   <div className="calendar-header">
-    <CalendarHeaderDate />
+    <CalendarHeaderMonthYear />
+    <CalendarHeaderDay />
     <CalendarHeaderClock />
   </div>
 );

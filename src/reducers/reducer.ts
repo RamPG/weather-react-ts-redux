@@ -1,11 +1,14 @@
 import { NEXT_MONTH, PREV_MONTH } from '../actions/actions-constants';
 import { CalendarState, MonthActionTypes } from '../types';
 import {
-  getCalendar, getNameMonth, getMonthNow, getYearNow, getDayNow,
+  getCalendar, getNameMonth, getMonthNow, getYearNow, getWeekDayNow, getNameDay, getMonthDayNow,
 } from '../services/time-library';
 
 const initialState: CalendarState = {
-  currentDay: getDayNow(),
+  currentDay: {
+    name: getNameDay(getWeekDayNow()),
+    number: getMonthDayNow(),
+  },
   currentYear: getYearNow(),
   currentMonth: {
     name: getNameMonth(getMonthNow()),

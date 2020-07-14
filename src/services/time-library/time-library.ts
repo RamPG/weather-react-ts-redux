@@ -1,12 +1,15 @@
 import { DateObject, ItemObject } from '../../types';
 
+function getWeekDayNow(): number {
+  return new Date().getDay();
+}
 function getMonthNow(): number {
   return new Date().getMonth();
 }
 function getYearNow(): number {
   return new Date().getFullYear();
 }
-function getDayNow(): number {
+function getMonthDayNow(): number {
   return new Date().getDate();
 }
 function getHoursFormat(): string {
@@ -66,7 +69,7 @@ function getCalendar(current: DateObject): Array<Array<ItemObject>> {
   if (year === getYearNow() && month === getMonthNow()) {
     for (let i: number = 0; i < 5; i++) {
       for (let j: number = 0; j < 7; j++) {
-        if (calendar[i][j].day === getDayNow()) {
+        if (calendar[i][j].day === getMonthDayNow()) {
           calendar[i][j].classButton = 'btn btn-danger btn-block';
           break;
         }
@@ -92,7 +95,19 @@ function getNameMonth(month: number) : string {
   ];
   return monthsNames[month];
 }
+function getNameDay(day: number): string {
+  const daysNames: Array<string> = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  return daysNames[day];
+}
 export {
-  getCalendar, getNameMonth, getMonthNow, getYearNow,
-  getDayNow, getHoursFormat, getMinutesFormat, getSecondsFormat,
+  getCalendar, getNameMonth, getMonthNow, getYearNow, getWeekDayNow,
+  getMonthDayNow, getHoursFormat, getMinutesFormat, getSecondsFormat, getNameDay,
 };
