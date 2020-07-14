@@ -7,9 +7,20 @@ interface PrevMonthAction {
 interface NextMonthAction {
     type: typeof NEXT_MONTH
 }
+export type DateObject = {
+    year: number,
+    month: number
+}
+export type ItemObject = {
+    day: number,
+    classButton: string
+}
 export interface CalendarState {
     currentYear: number,
-    currentMonth: number,
-    calendar: Array<Array<number>>
+    currentMonth: {
+        name: string,
+        number: number
+    },
+    calendar: Array<Array<ItemObject>>
 }
 export type MonthActionTypes = PrevMonthAction | NextMonthAction

@@ -1,7 +1,4 @@
-type DateObject = {
-    year: number,
-    month: number
-}
+import { DateObject, ItemObject } from '../../types';
 
 function getDaysInMonth(current: DateObject): number {
   const { year, month } = current;
@@ -18,21 +15,25 @@ function getSundayDate(current: DateObject, daysInMonth: number): number {
   return daysInMonth - currentDay + 1;
 }
 
-function getCalendar(current: DateObject): Array<Array<number>> {
+function getCalendar(current: DateObject): Array<Array<ItemObject>> {
   const { year, month } = current;
   const currentDaysInMonth: number = getDaysInMonth({ year, month });
   let prevDaysInMonth: number = getDaysInMonth({ year, month: month - 1 });
   let currentDay: number = getSundayDate({ year, month }, prevDaysInMonth);
+  let flagDayInMonth: boolean = false;
   if (currentDay === 1) {
     prevDaysInMonth = currentDaysInMonth;
+    flagDayInMonth = true;
   }
-  const calendar: Array<Array<number>> = [];
-  for (let i: number = 0; i < 5; i++) {
-    const newWeek: Array<number> = [];
+  const calendar: Array<Array<ItemObject>> = [];
+  for (let i: number = 0; i < 6; i++) {
+    const newWeek: Array<ItemObject> = [];
     for (let j: number = 0; j < 7; j++) {
-      newWeek.push(currentDay);
+      const className: string = flagDayInMonth ? 'btn btn-success btn-block' : 'btn btn-danger btn-block';
+      newWeek.push({ day: currentDay, classButton: className });
       currentDay += 1;
       if (currentDay > prevDaysInMonth) {
+        flagDayInMonth = !flagDayInMonth;
         currentDay = 1;
         prevDaysInMonth = currentDaysInMonth;
       }
@@ -41,5 +42,32 @@ function getCalendar(current: DateObject): Array<Array<number>> {
   }
   return calendar;
 }
-
-export { getCalendar };
+function getNameMonth(month: number) : string {
+  const monthsNames: Array<string> = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  return monthsNames[month];
+}
+function getMonthNow(): number {
+  return new Date().getMonth();
+}
+function getYearNow(): number {
+  return new Date().getFullYear();
+}
+/* function getDayNow(): number {
+  return new Date().getDate();
+} */
+export {
+  getCalendar, getNameMonth, getMonthNow, getYearNow,
+};

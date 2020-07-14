@@ -1,25 +1,48 @@
 import { NEXT_MONTH, PREV_MONTH } from '../actions/actions-constants';
 import { CalendarState, MonthActionTypes } from '../types';
-import { getCalendar } from '../services/time-library';
+import {
+  getCalendar, getNameMonth, getMonthNow, getYearNow,
+} from '../services/time-library';
 
 const initialState: CalendarState = {
-  currentYear: 2020,
-  currentMonth: new Date().getMonth(),
-  calendar: getCalendar({ year: 2020, month: new Date().getMonth() }),
+  currentYear: getYearNow(),
+  currentMonth: {
+    name: getNameMonth(getMonthNow()),
+    number: getMonthNow(),
+  },
+  calendar: getCalendar({ year: getYearNow(), month: getMonthNow() }),
 };
 const reducer = (state = initialState, action: MonthActionTypes): CalendarState => {
+  let month: number = state.currentMonth.number;
+  let year: number = state.currentYear;
   switch (action.type) {
     case NEXT_MONTH:
+      month += 1;
+      if (month === 12) {
+        month = 0;
+        year += 1;
+      }
       return {
-        ...state,
-        currentMonth: state.currentMonth + 1,
-        calendar: getCalendar({ year: 2020, month: state.currentMonth + 1 }),
+        currentYear: year,
+        currentMonth: {
+          name: getNameMonth(month),
+          number: month,
+        },
+        calendar: getCalendar({ year, month }),
       };
     case PREV_MONTH:
+      month -= 1;
+      if (month === -1) {
+        month = 11;
+        year -= 1;
+      }
       return {
-        ...state,
-        currentMonth: state.currentMonth - 1,
-        calendar: getCalendar({ year: 2020, month: state.currentMonth - 1 }),
+        currentYear: year,
+        currentMonth: {
+          name: getNameMonth(month),
+          number: month,
+        },
+        calendar: getCalendar({ year, month }),
       };
     default:
       return state;

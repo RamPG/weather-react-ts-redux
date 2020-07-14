@@ -1,3 +1,7 @@
-import { getCalendar } from './time-library';
+import {
+  getCalendar, getNameMonth, getMonthNow, getYearNow,
+} from './time-library';
 
-export { getCalendar };
+export {
+  getCalendar, getNameMonth, getMonthNow, getYearNow,
+};

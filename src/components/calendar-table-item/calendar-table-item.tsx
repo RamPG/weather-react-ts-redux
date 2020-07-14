@@ -1,14 +1,15 @@
 import React from 'react';
 import './calendar-table-item.css';
 
-type CalendarTableItem = {
-    id: number
+interface CalendarTableItem {
+    id: number,
+    classButton: string
 }
 
-const CalendarTableItem = ({ id }: CalendarTableItem) => (
+const CalendarTableItem = ({ id, classButton }: CalendarTableItem) => (
   <button
     type="button"
-    className="btn btn-outline-primary btn-block"
+    className={classButton}
   >
     {id}
   </button>

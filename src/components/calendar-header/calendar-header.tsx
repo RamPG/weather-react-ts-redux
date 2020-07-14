@@ -6,18 +6,21 @@ import { Dispatch } from 'redux';
 import { CalendarState } from '../../types';
 import { nextMonth, prevMonth } from '../../actions/actions';
 
-type CalendarHeaderProps = {
+interface CalendarHeaderProps {
     year: number,
-    month: number,
+    month: string,
 }
+
 const mapState = (state: CalendarState) => ({
   year: state.currentYear,
-  month: state.currentMonth,
+  month: state.currentMonth.name,
 });
+
 const mapDispatch = (dispatch: Dispatch) => ({
   onNextMonth: () => dispatch(nextMonth()),
   onPrevMonth: () => dispatch(prevMonth()),
 });
+
 type ReduxType = ReturnType<typeof mapState> & ReturnType<typeof mapDispatch> & CalendarHeaderProps;
 const CalendarHeader = ({
   month, year, onPrevMonth, onNextMonth,
@@ -32,10 +35,7 @@ const CalendarHeader = ({
     </button>
     <p className="display-4 text-center text-uppercase">
       <span>
-        day.
-        {month}
-        .
-        {year}
+        {`${month}  ${year}`}
       </span>
     </p>
     <button

@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import './calendar-table.css';
 import CalendarTableItem from '../calendar-table-item';
-import { CalendarState } from '../../types';
+import './calendar-table.css';
+import { CalendarState, ItemObject } from '../../types';
 
 interface CalendarTable {
-  calendar: Array<Array<number>>
+  calendar: Array<Array<ItemObject>>
 }
 
 const CalendarTable = ({ calendar }: CalendarTable) => (
@@ -25,18 +25,18 @@ const CalendarTable = ({ calendar }: CalendarTable) => (
       </thead>
       <tbody>
         {
-          calendar.map((array) => (
-            <tr>
-              {
-                array.map((element) => (
-                  <th>
-                    <CalendarTableItem id={element} />
-                  </th>
-                ))
-              }
-            </tr>
-          ))
-        }
+            calendar.map((array) => (
+              <tr>
+                {
+                  array.map((element) => (
+                    <th>
+                      <CalendarTableItem id={element.day} classButton={element.classButton} />
+                    </th>
+                  ))
+                }
+              </tr>
+            ))
+           }
       </tbody>
     </table>
   </div>
