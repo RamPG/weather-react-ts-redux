@@ -3,7 +3,6 @@ import React from 'react';
 import {
   getWeekDayNow, getMonthDayNow, getYearNow, getMonthNow, getNameDay, getNameMonth,
 } from '../../services/time-library';
-import './calendar-header-date.css';
 
 const CalendarHeaderDate = () => (
   <h1 className="display-4 text-center">

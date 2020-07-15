@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './calendar-header-clock.css';
 import { getHoursFormat, getMinutesFormat, getSecondsFormat } from '../../services/time-library';
 
 interface CalendarHeaderClockState {

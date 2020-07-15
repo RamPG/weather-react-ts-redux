@@ -1,5 +1,4 @@
 import React from 'react';
-import './calendar-table-item.css';
 
 interface CalendarTableItem {
     id: number,
